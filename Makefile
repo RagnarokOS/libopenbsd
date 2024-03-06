@@ -1,4 +1,4 @@
-# $Ragnarok: Makefile,v 1.13 2023/11/15 17:37:07 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.14 2024/03/06 18:12:07 lecorbeau Exp $
 
 include ${TOPDIR}/usr/share/mk/libs.mk
 
@@ -20,6 +20,14 @@ install:
 	install -d -m 755 -g 0 -o root ${DESTDIR}/lib/libopenbsd
 	install -m 755 -g 0 -o root ${LIB} ${DESTDIR}/lib/libopenbsd
 	install -m 755 -g 0 -o root ${HEADERS} ${DESTDIR}/lib/libopenbsd
+
+deb: all
+	mkdir -p ${DESTDIR}
+	cp -r DEBIAN/ ${DESTDIR}/
+	install -d ${DESTDIR}/lib/libopenbsd
+	install ${LIB} ${DESTDIR}/lib/libopenbsd
+	install ${HEADERS} ${DESTDIR}/lib/libopenbsd
+	/usr/bin/dpkg-deb -b ${DESTDIR} .
 
 clean:
 	rm -f ${LIB} ${OBJS}
