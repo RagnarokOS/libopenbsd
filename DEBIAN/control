@@ -1,0 +1,10 @@
+Package: libopenbsd
+Version: 01
+Section: devel
+Priority: optional
+Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
+Homepage: https://github.com/RagnarokOS/libopenbsd
+Architecture: amd64
+Description: Static lib containing OpenBSD funcs
+ This library is used in some programs found on Ragnarok
+ systems.

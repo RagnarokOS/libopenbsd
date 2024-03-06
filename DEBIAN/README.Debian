@@ -1,0 +1,6 @@
+libopenbsd for Debian
+--------------------
+
+Small static library containing functions commonly found on OpenBSD.
+
+ -- Ian LeCorbeau <I-LeCorbeau@protonmail.com>  Wed, 06 Mar 2024 11:00:46 -0500
