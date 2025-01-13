@@ -1,4 +1,4 @@
-/* $Ragnarok: openbsd.h,v 1.3 2023/11/13 20:46:58 lecorbeau Exp $
+/* $Ragnarok: openbsd.h,v 1.4 2025/01/13 16:08:41 lecorbeau Exp $
  *
  * header for libopenbsd
  */
@@ -80,6 +80,10 @@
 #define _PW_NAME_LEN	31
 #endif
 
+#ifndef ALLPERMS
+#define ALLPERMS	000777777
+#endif
+
 #ifndef S_ISTXT
 #define S_ISTXT 0
 #endif
@@ -90,6 +94,7 @@ extern char	*fgetln(FILE *, size_t *);
 extern int	 fmt_scaled(long long, char *);
 extern char	*getbsize(int *, long *);
 extern int	 getopt(int, char * const *, const char *);
+extern const char *group_from_gid(gid_t, int);
 extern double	 ldexp(double, int);
 extern double	 log(double);
 extern double	 log10(double);
@@ -102,6 +107,7 @@ extern void	*recallocarray(void *, size_t, size_t, size_t);
 extern double	 scalbn(double, int);
 extern double	 sqrt(double);
 extern long long strtonum(const char *, long long, long long, const char **);
+extern const char *user_from_uid(uid_t, int);
 extern void	 verrc(int, int, const char *, va_list);
 extern void	 vwarnc(int, const char *, va_list);
 extern void	 warnc(int, const char *, ...);
