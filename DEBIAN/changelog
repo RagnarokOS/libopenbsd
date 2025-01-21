@@ -1,3 +1,9 @@
+libopenbsd (02) unstable; urgency=medium
+
+  * New release for -current. Many additions.
+
+ -- Ian LeCorbeau <I-LeCorbeau@protonmail.com>  Mon, 20 Jan 2025 19:39:43 -0500
+
 libopenbsd (01) unstable; urgency=medium
 
   * Initial release.

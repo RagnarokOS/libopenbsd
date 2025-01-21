@@ -1,5 +1,5 @@
 Package: libopenbsd
-Version: 01
+Version: 02
 Section: devel
 Priority: optional
 Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
