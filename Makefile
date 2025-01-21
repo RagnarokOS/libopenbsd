@@ -1,6 +1,11 @@
-# $Ragnarok: Makefile,v 1.15 2025/01/19 19:45:10 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.16 2025/01/21 00:34:15 lecorbeau Exp $
 
 include ${TOPDIR}/usr/share/mk/libs.mk
+
+# For the .deb package
+PKG	= libopenbsd
+VERSION	= 02
+PKGDIR	= ${PKG}_${VERSION}_amd64
 
 CFLAGS	?= ${O_FLAG} -pipe ${HARDENING_CPPFLAGS} ${HARDENING_CFLAGS}
 CFLAGS	+= -I.
@@ -22,12 +27,15 @@ install:
 	install -m 755 -g 0 -o root ${HEADERS} ${DESTDIR}/lib/libopenbsd
 
 deb: all
-	mkdir -p ${DESTDIR}
-	cp -r DEBIAN/ ${DESTDIR}/
-	install -d ${DESTDIR}/lib/libopenbsd
-	install ${LIB} ${DESTDIR}/lib/libopenbsd
-	install ${HEADERS} ${DESTDIR}/lib/libopenbsd
-	/usr/bin/dpkg-deb -b ${DESTDIR} .
+	mkdir -p ${PKGDIR}
+	cp -r DEBIAN/ ${PKGDIR}/
+	install -d ${PKGDIR}/lib/libopenbsd
+	install ${LIB} ${PKGDIR}/lib/libopenbsd
+	install ${HEADERS} ${PKGDIR}/lib/libopenbsd
+	/usr/bin/dpkg-deb -b ${PKGDIR} . 2>&1 | tee ${PKG}_${VERSION}.build
 
 clean:
 	rm -f ${LIB} ${OBJS}
+
+distclean: clean
+	rm -rf ${PKGDIR} ${PKG}_${VERSION}.build
