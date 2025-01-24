@@ -1,4 +1,4 @@
-# $Ragnarok: Makefile,v 1.16 2025/01/21 00:34:15 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.17 2025/01/24 16:36:48 lecorbeau Exp $
 
 include ${TOPDIR}/usr/share/mk/libs.mk
 
@@ -14,7 +14,7 @@ LDFLAGS += ${HARDENING_LDFLAGS}
 LIB	 = libopenbsd.a
 OBJS	 = basename.o dirname.o e_log.o e_log10.o e_pow.o e_sqrt.o errc.o fgetln.o fmt_scaled.o \
 	   getbsize.o getopt_long.o ldexp.o ohash.o pwd.o reallocarray.o recallocarray.o s_fabs.o \
-	   s_scalbn.o strlcat.o strlcpy.o strtonum.o strmode.o verrc.o vwarnc.o warnc.o
+	   s_scalbn.o setmode.o strlcat.o strlcpy.o strtonum.o strmode.o verrc.o vwarnc.o warnc.o
 HEADERS	= math_private.h ohash.h openbsd.h
 
 all: ${OBJS}

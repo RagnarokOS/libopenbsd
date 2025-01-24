@@ -1,4 +1,4 @@
-/* $Ragnarok: openbsd.h,v 1.5 2025/01/19 19:47:02 lecorbeau Exp $
+/* $Ragnarok: openbsd.h,v 1.6 2025/01/24 16:36:17 lecorbeau Exp $
  *
  * header for libopenbsd
  */
@@ -93,6 +93,7 @@ extern double	 fabs(double);
 extern char	*fgetln(FILE *, size_t *);
 extern int	 fmt_scaled(long long, char *);
 extern char	*getbsize(int *, long *);
+extern mode_t	 getmode(const void *, mode_t);
 extern int	 getopt(int, char * const *, const char *);
 extern const char *group_from_gid(gid_t, int);
 extern double	 ldexp(double, int);
@@ -101,6 +102,7 @@ extern double	 log10(double);
 extern char	*openbsd_basename(const char *);
 extern char	*openbsd_dirname(const char *);
 extern double	 pow(double, double);
+extern void	*setmode(const char *);
 extern size_t	 strlcat(char *, const char *, size_t);
 extern size_t	 strlcpy(char *, const char *, size_t);
 extern void	 strmode(int, char *);
