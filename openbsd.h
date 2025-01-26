@@ -1,4 +1,4 @@
-/* $Ragnarok: openbsd.h,v 1.6 2025/01/24 16:36:17 lecorbeau Exp $
+/* $Ragnarok: openbsd.h,v 1.7 2025/01/26 20:39:49 lecorbeau Exp $
  *
  * header for libopenbsd
  */
@@ -12,6 +12,31 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+
+#ifdef __aarch64__
+#define MACHINE		"aarch64"
+#define MACHINE_ARCH	"aarch64"
+#endif
+
+#ifdef __arm__
+#define MACHINE		"arm"
+#define MACHINE_ARCH	"arm"
+#endif
+
+#ifdef __i386__
+#define MACHINE		"i386"
+#define MACHINE_ARCH	"i386"
+#endif
+
+#if defined(__powerpc__) || defined(__ppc__)
+#define MACHINE		"powerpc"
+#define MACHINE_ARCH	"powerpc"
+#endif
+
+#ifdef __x86_64__
+#define MACHINE		"x86_64"
+#define MACHINE_ARCH	"x86_64"
+#endif
 
 #ifndef __dead
 #define __dead		__attribute__((__noreturn__))
