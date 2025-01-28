@@ -1,4 +1,4 @@
-/* $Ragnarok: openbsd.h,v 1.7 2025/01/26 20:39:49 lecorbeau Exp $
+/* $Ragnarok: openbsd.h,v 1.8 2025/01/28 15:52:46 lecorbeau Exp $
  *
  * header for libopenbsd
  */
@@ -98,7 +98,11 @@
 #endif
 
 #ifndef MAXBSIZE
-#define MAXBSIZE 65536
+#define MAXBSIZE	65536
+#endif
+
+#ifndef REG_BASIC
+#define REG_BASIC	0000
 #endif
 
 #ifndef _PW_NAME_LEN
