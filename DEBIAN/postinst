@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -e
-
-# Fix permissions
-/usr/bin/chmod 755 /lib/libopenbsd
-/usr/bin/chown root:root /lib/libopenbsd
-/usr/bin/chmod 644 /lib/libopenbsd/*
-/usr/bin/chown root:root /lib/libopenbsd/*
