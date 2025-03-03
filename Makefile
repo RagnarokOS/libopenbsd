@@ -16,12 +16,9 @@ all: ${OBJS}
 	ranlib ${LIB}
 
 install:
-	install -d -m 755 -g 0 -o root ${DESTDIR}/lib/libopenbsd
-	install -m 755 -g 0 -o root ${LIB} ${DESTDIR}/lib/libopenbsd
-	install -m 755 -g 0 -o root ${HEADERS} ${DESTDIR}/lib/libopenbsd
+	install -d -m 755 -g 0 -o root ${DESTDIR}/usr/lib/libopenbsd
+	install -m 755 -g 0 -o root ${LIB} ${DESTDIR}/usr/lib/libopenbsd
+	install -m 755 -g 0 -o root ${HEADERS} ${DESTDIR}/usr/lib/libopenbsd
 
 clean:
 	rm -f ${LIB} ${OBJS}
-
-distclean: clean
-	rm -rf ${PKGDIR} ${PKG}_${VERSION}.build
